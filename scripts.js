@@ -35,21 +35,29 @@ window.addEventListener("load", ()=>{
          return;
       }
 
+
       const launchStatus = document.getElementById("launchStatus");
       const faultyItems = document.getElementById("faultyItems");
+      launchStatus.style.color = "green";
+      launchStatus.innerHTML ="Shuttle Ready For Launch";
+
 
       function fail() {
+         launchStatus.style.color = "red";
          launchStatus.innerHTML ="Shuttle not ready for launch";
          faultyItems.style.visibility = "visible";
       }
-      if(Number(fuelLevel.value) < 10000) {
-         fuelStatus.innerHTML = `There is not enough fuel for the journey`;
-         fail();
-      }
+
       if(Number(cargoMass.value) > 10000) {
          cargoStatus.innerHTML = `There is too much mass for the journey.`;
          fail();
       }
+
+      if(Number(fuelLevel.value) < 10000) {
+         fuelStatus.innerHTML = `There is not enough fuel for the journey`;
+         fail();
+      }
+
 
       fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
          response.json().then( function(json) {
