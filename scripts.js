@@ -47,7 +47,7 @@ window.addEventListener("load", ()=>{
          fail();
       }
       if(Number(cargoMass.value) > 10000) {
-         fuelStatus.value = `There is too much mass for the journey.`;
+         cargoStatus.value = `There is too much mass for the journey.`;
          fail();
       }
 
