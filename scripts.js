@@ -2,17 +2,23 @@ window.addEventListener("load", ()=>{
   
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
+      
       event.preventDefault();
-
+     
       const pilotName = document.querySelector("input[name=pilotName]");
-      pilotStatus.value = `Pilot ${pilotName.innerHTML} is ready for launch.`
-      const copilotName = document.querySelector("input[name=copilotName]");
-      copilotStatus.value = `Co-pilot ${copilotName.innerHTML} isready for launch.`
-      const fuelLevel = document.querySelector("input[name=fuelLevel]");
-      fuelStatus.value = `Fuel level is acceptable. Ready for launch`
-      const cargoMass = document.querySelector("input[name=cargoMass]");
-      cargoStatus.value = `Cargo mass is acceptable. Ready for launch.` 
+      const pilotStatus = document.getElementById("pilotStatus");
+      pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch.`
 
+      const copilotName = document.querySelector("input[name=copilotName]");
+      const copilotStatus = document.getElementById("copilotStatus");
+      copilotStatus.innerHTML = `Co-pilot ${copilotName.value} is ready for launch.`
+
+      const fuelLevel = document.querySelector("input[name=fuelLevel]");
+      const fuelStatus = document.getElementById("fuelStatus");
+    
+      const cargoMass = document.querySelector("input[name=cargoMass]");
+      const cargoStatus = document.getElementById("cargoStatus");
+ 
       if (pilotName.value === "") {
          alert('"Pilot Name:" is required')
          event.preventDefault();
@@ -35,7 +41,6 @@ window.addEventListener("load", ()=>{
          return;
       }
 
-
       const launchStatus = document.getElementById("launchStatus");
       const faultyItems = document.getElementById("faultyItems");
       launchStatus.style.color = "green";
@@ -43,19 +48,23 @@ window.addEventListener("load", ()=>{
 
 
       function fail() {
-         launchStatus.style.color = "red";
          launchStatus.innerHTML ="Shuttle not ready for launch";
+         launchStatus.style.color = "red";
          faultyItems.style.visibility = "visible";
       }
 
-      if(Number(cargoMass.value) > 10000) {
-         cargoStatus.innerHTML = `There is too much mass for the journey.`;
+      if(Number(fuelLevel.value) < 10000) {
+         fuelStatus.innerHTML = `${fuelLevel.value}(L) is NOT enough fuel for the journey`;
          fail();
+      } else { 
+         fuelStatus.innerHTML = `${fuelLevel.value}(L) is good. Ready to launch`;
       }
 
-      if(Number(fuelLevel.value) < 10000) {
-         fuelStatus.innerHTML = `There is not enough fuel for the journey`;
+      if(Number(cargoMass.value) > 10000) {
+         cargoStatus.innerHTML = `${cargoMass.value}(kg) is too much mass for the journey.`;
          fail();
+      } else {
+         cargoStatus.innerHTML = `${cargoMass.value}(kg) is good. Ready to launch.`;
       }
 
 
@@ -77,7 +86,7 @@ window.addEventListener("load", ()=>{
             <img src="${json[index].image}">
             `;
          });
-      });  
+      }); 
    });
 });
 
