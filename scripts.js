@@ -45,11 +45,11 @@ window.addEventListener("load", ()=>{
          event.preventDefault();
       }
       if (copilotName.value === "" || !isNaN(copilotName.value) ) {
-         alert('"Co-Pilot Name:" is required and must be a number')
+         alert('"Co-Pilot Name:" is required and must NOT be a number')
          event.preventDefault();
       }
       if (fuelLevel.value === "" || isNaN(fuelLevel.value)) {
-         alert('Fuel Level:" is required and must be a number')
+         alert('Fuel Level:" is required and must NOT be a number')
          event.preventDefault();
       }
       if (cargoMass.value === "" || isNaN(cargoMass.value)) {
