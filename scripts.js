@@ -77,13 +77,15 @@ window.addEventListener("load", ()=>{
 
       if(Number(fuelLevel.value) < 10000) {
          fuelStatus.innerHTML = `${fuelLevel.value}(L) is NOT enough fuel for the journey`;
+         fuelStatus.style.color = "red";
          fail();
       } else { 
          fuelStatus.innerHTML = `${fuelLevel.value}(L) is good. Ready to launch`;
       }
 
-      if(Number(cargoMass.value) > 10000) {
+      if(Number(cargoMass.value) > 10000) {         
          cargoStatus.innerHTML = `${cargoMass.value}(kg) is too much mass for the journey.`;
+         cargoStatus.style.color = "red";
          fail();
       } else {
          cargoStatus.innerHTML = `${cargoMass.value}(kg) is good. Ready to launch.`;
