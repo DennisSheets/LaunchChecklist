@@ -41,7 +41,7 @@ window.addEventListener("load", ()=>{
 
       console.log(`type: ${typeof pilotName.value}`);
       if (pilotName.value === "" || !isNaN(pilotName.value)  || (typeof pilotName.value) !== 'string') {
-         alert('"Pilot Name:" is required and must be a number')
+         alert('"Pilot Name:" is required and must NOT be a number')
          event.preventDefault();
       }
       if (copilotName.value === "" || !isNaN(copilotName.value) ) {
@@ -49,7 +49,7 @@ window.addEventListener("load", ()=>{
          event.preventDefault();
       }
       if (fuelLevel.value === "" || isNaN(fuelLevel.value)) {
-         alert('Fuel Level:" is required and must NOT be a number')
+         alert('Fuel Level:" is required and must be a number')
          event.preventDefault();
       }
       if (cargoMass.value === "" || isNaN(cargoMass.value)) {
