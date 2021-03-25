@@ -2,8 +2,8 @@ window.addEventListener("load", ()=>{
 
    fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
       response.json().then( function(json) {
+         const missionTarget = document.getElementById("missionTarget");
          missionTarget.style.visibility = "visible";
-         const destination = document.getElementById("missiontTarget");
          let index = Math.floor(Math.random()*Object.keys(json).length);
           
          missionTarget.innerHTML = `
@@ -76,7 +76,7 @@ window.addEventListener("load", ()=>{
       function fail() {
          launchStatus.innerHTML ="Shuttle not ready for launch";
          launchStatus.style.color = "red";
-         faultyItems.style.visibility = "visible";
+         //faultyItems.style.visibility = "visible";
       }
 
       if(Number(fuelLevel.value) < 10000) {
