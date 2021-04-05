@@ -66,10 +66,10 @@ window.addEventListener("load", ()=>{
       const launchStatus = document.getElementById("launchStatus");
       const faultyItems = document.getElementById("faultyItems");
       faultyItems.style.visibility = "visible";
-      launchStatus.style.color = "green";
-      fuelStatus.style.color = "green";
-      cargoStatus.style.color = "green";
-
+      launchStatus.style.color = "#36d80e";
+      fuelStatus.style.color = "#36d80e";
+      cargoStatus.style.color = "#36d80e";
+      
 
       launchStatus.innerHTML ="Shuttle Ready For Launch";
 
