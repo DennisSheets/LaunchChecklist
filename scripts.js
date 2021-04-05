@@ -65,6 +65,7 @@ window.addEventListener("load", ()=>{
 
       const launchStatus = document.getElementById("launchStatus");
       const faultyItems = document.getElementById("faultyItems");
+      faultyItems.style.visibility = "visible";
       launchStatus.style.color = "green";
       fuelStatus.style.color = "green";
       cargoStatus.style.color = "green";
@@ -76,7 +77,7 @@ window.addEventListener("load", ()=>{
       function fail() {
          launchStatus.innerHTML ="Shuttle not ready for launch";
          launchStatus.style.color = "red";
-         //faultyItems.style.visibility = "visible";
+         
       }
 
       if(Number(fuelLevel.value) < 10000) {
@@ -99,4 +100,5 @@ window.addEventListener("load", ()=>{
     
    });
 });
+
 
